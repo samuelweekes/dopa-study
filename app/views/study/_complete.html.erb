@@ -1,0 +1,17 @@
+<% @studySessions.each() do |studySession| %>
+  <div class="row justify-content-center py-1">
+    <div class="col rowDuration">
+      <%= Time.at(studySession.time).utc.strftime("%H:%M:%S")%>
+    </div>
+    <div class="col rowReward">
+      <%= studySession.reward %>
+    </div>
+    <div class="col rowDate">
+      <%= studySession.created_at.localtime.strftime("%Y-%m-%d @ %R") %>
+    </div>
+    <div class="col rowDelete">
+      <button data-id="<%=studySession.id%>" class="useRewardButton btn btn-warning btn-sm">Use this Reward</button>
+    </div>
+  </div>
+<% end %>
+ 

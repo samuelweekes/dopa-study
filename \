@@ -1,0 +1,24 @@
+class StudyController < ApplicationController
+  skip_before_action :verify_authenticity_token 
+  def index
+    @studySessions = Study.all
+  end
+
+  def create
+     time = params[:time]
+     study = Study.new
+     if(isNumber(time.seconds))
+       study.time = time.seconds
+       study.reward = 1
+       study.save
+       render json: {time: study.time}
+     end
+  end
+
+  def complete
+  end
+
+  def is_number? string
+    true if Float(string) rescue false
+  end
+end

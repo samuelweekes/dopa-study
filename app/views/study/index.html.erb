@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dopa-Study!</title>
+  </head>
+  <body> 
+
+    <div class="container-fluid mt-3">
+      <div class="row justify-content-end form-inline mb-3">
+        <input id="fundsInput" class="form-control mr-3" type="number">
+        <button id="fundsButton" class="btn btn-info mr-3">Add Funds</button>
+        <button id="resetButton" class="btn btn-danger mr-3">Reset Balance</button>
+      </div>
+      <div class="row justify-content-center">
+        <h3 class="text-success my-3">Current Balance: £<span id="balance"><%= @balance %></span></h3> 
+      </div>
+      <div class="row justify-content-center form-inline my-3">
+        <input id="timeInput" class="form-control mr-3" type="time">
+        <button id="completeButton" class="btn btn-success mr-3">Add Study Session</button>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div id="completeAlert" class="alert alert-success d-none" role="alert">
+          Completed study session!
+        </div>
+        <div id="failAlert" class="alert alert-danger d-none" role="alert">
+           Did not add study session, please ensure a valid time is entered
+        </div>
+      </div>
+      <div class="container studyResults mb-5">
+        <div class="row justify-content-center">
+            <div class="col">Duration</div>
+            <div class="col">Reward</div>
+            <div class="col">Date</div>
+            <div class="col"></div>
+        </div>
+        <%= render "complete", object: @studySessions %>
+      </div>
+    </div>
+
+  </body>
+
+  <template>
+    <div class="row justify-content-center py-1">
+      <div class="col rowDuration">
+      </div>
+      <div class="col rowReward">
+      </div>
+      <div class="col rowDate">
+      </div>
+    </div>
+  </template>
+
+
+</html>
